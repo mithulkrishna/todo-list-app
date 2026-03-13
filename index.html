@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todo List App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Loading overlay ──────────────────────────────── -->
+  <div id="loading-overlay">
+    <div class="spinner"></div>
+    <span class="spinner-text">Loading tasks…</span>
+  </div>
+
+  <!-- ── Toast notification ───────────────────────────── -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <!-- ── Header + input form ──────────────────────────── -->
+  <header>
+    <div class="header-inner">
+      <h1>Todo <span>List</span></h1>
+      <form id="todo-form" autocomplete="off">
+        <input
+          id="todo-input"
+          type="text"
+          placeholder="Add a new task…"
+          maxlength="200"
+          aria-label="New task"
+        />
+        <button id="submit-btn" type="submit">Submit</button>
+      </form>
+    </div>
+  </header>
+
+  <!-- ── Main two-column layout ───────────────────────── -->
+  <main>
+
+    <!-- Pending column -->
+    <section class="column column--pending">
+      <div class="column-header">
+        <h2>Pending Tasks</h2>
+        <span class="count-badge" id="pending-count">0</span>
+      </div>
+      <ul class="todo-list" id="pending-list" aria-label="Pending tasks"></ul>
+    </section>
+
+    <!-- Completed column -->
+    <section class="column column--completed">
+      <div class="column-header">
+        <h2>Completed Tasks</h2>
+        <span class="count-badge" id="completed-count">0</span>
+      </div>
+      <ul class="todo-list" id="completed-list" aria-label="Completed tasks"></ul>
+    </section>
+
+  </main>
+
+  <!-- ── MVC scripts (order matters) ─────────────────── -->
+  <script src="model.js"></script>
+  <script src="view.js"></script>
+  <script src="controller.js"></script>
+
+</body>
+</html>
